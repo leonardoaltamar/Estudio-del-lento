@@ -1,5 +1,7 @@
 /* EL PROPIO LENTOOOOO 👿 */
 
+
+
 /* POO */
 
 /* la abstracción de forma subjetiva de un problema con el fin de fragmentarlo en pequeñas soluciones... */
@@ -76,17 +78,17 @@
 
 */
 
-abstract class CRUD {
+/* abstract class CRUD {
     abstract create(): Promise<number>
     abstract getAll(): Promise<any[]>
     abstract delete(): Promise<number>;
     abstract update(): Promise<any>;
     abstract getById(): Promise<any>;
-}
+} */
 
 
 
-class Category implements CRUD{
+/* class Category implements CRUD{
 
     delete(): Promise<number> {
         try {            
@@ -113,7 +115,7 @@ class Category implements CRUD{
     }
 
 
-}
+} */
 
 
 
@@ -124,3 +126,93 @@ class Category implements CRUD{
     retrun '12' as any
 
 */
+
+
+/* 
+    HERENCIA
+
+    la extensión de una lógica escrita en una clase general para usarla en clases especificas
+
+    para Jascript: El resultado de una herencia es una clase con atributos y metodos implicitos
+
+    patron adapter
+*/
+
+
+/* setter y getter */
+
+
+class Persona{
+
+     name
+     lastName
+     documentNumber
+     documentType
+     secondName
+     secondLastName
+
+    constructor(){
+
+    }
+
+    getName(){
+        return this.name;
+    }
+
+    getDocumentNumber()/* :string */{
+        return this.documentNumber
+    }
+
+    formObject(object){
+        this.name = object.name
+        this.lastName = object.lastName
+        this.documentNumber = object.documentNumber
+        this.documentType = object.documentType
+        this.secondName = object.secondName
+        this.secondLastName = object.secondLastName
+    }
+
+
+}
+
+
+class Profesor extends Persona{
+    
+    asignatura 
+    horasLaborales
+    curso
+
+    constructor(){
+        super();
+    }
+
+    formObjectProfesor(object){ 
+        this.asignatura = object.asignatura
+    }
+}
+
+
+class Alumno{
+
+}
+
+class Rector{
+
+}
+
+
+
+const profesor = new Profesor();
+
+profesor.formObject({
+    name: "Danny",
+    lastName: "Opsino",
+    documentNumber: "123123",
+    documentType: "cedula",
+    secondName: "",
+    secondLastName: "",
+})
+
+profesor.formObjectProfesor({asignatura: 'leo'})
+
+console.log(profesor);
